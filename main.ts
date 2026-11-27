@@ -270,7 +270,7 @@ function drawScene(canvas: Canvas, sceneId: number, x: number, y: number, w: num
   const fw = Math.floor(w);
   const fh = Math.floor(h);
 
-  canvas.fillRect(fx, fy, fw, fh, 236, 232, 220);
+  canvas.fillRect(fx, fy, fw, fh, 30, 35, 45);
   canvas.drawRect(fx, fy, fw, fh, 200, 195, 180, 1);
 
   const setScenePixel = (px: number, py: number, pr: number, pg: number, pb: number) => {
@@ -288,137 +288,141 @@ function drawScene(canvas: Canvas, sceneId: number, x: number, y: number, w: num
   };
 
   switch (sceneId) {
-    case 1: // Kim Jong Un tactical nuclear deployment
-      fillSceneRect(fx + 8, fy + 12, fw - 16, fh - 20, 50, 50, 50);
-      for (let i = 0; i < fw - 16; i += 8) {
-        fillSceneRect(fx + 8 + i, fy + 12, 4, 8, 200, 180, 0);
+    case 1: // 1 Kyiv night skyline, missile trails arcing down, CHP-4 plant and mall with smoke columns
+      fillSceneRect(fx + 5, fy + fh - 35, fw - 10, 30, 40, 40, 50);
+      fillSceneRect(fx + 15, fy + fh - 50, 15, 45, 60, 60, 70);
+      fillSceneRect(fx + 45, fy + fh - 60, 20, 55, 50, 50, 60);
+      fillSceneRect(fx + 20, fy + fh - 70, 6, 20, 120, 120, 120);
+      fillSceneRect(fx + 50, fy + fh - 75, 8, 20, 140, 140, 140);
+      canvas.drawLine(fx + 10, fy + 5, fx + 25, fy + fh - 50, 255, 200, 50);
+      canvas.drawLine(fx + 30, fy + 8, fx + 55, fy + fh - 60, 255, 100, 50);
+      break;
+
+    case 2: // 2 Red Sea port at dusk, drone silhouette over a refinery, supertanker, interceptor trails
+      fillSceneRect(fx + 5, fy + fh - 25, fw - 10, 22, 30, 60, 90);
+      fillSceneRect(fx + 15, fy + fh - 40, 45, 16, 70, 70, 70);
+      fillSceneRect(fx + 60, fy + fh - 50, 16, 26, 100, 50, 50);
+      fillSceneRect(fx + 35, fy + 20, 14, 3, 20, 20, 20);
+      canvas.drawLine(fx + fw - 10, fy + fh - 10, fx + 30, fy + 22, 255, 220, 100);
+      break;
+
+    case 3: // 3 Rain-lashed New York street, wind-bent trees, deflated parade balloon, dark storm clouds
+      fillSceneRect(fx + 5, fy + 5, fw - 10, 25, 50, 50, 60);
+      fillSceneRect(fx + 12, fy + fh - 45, 18, 40, 70, 70, 80);
+      fillSceneRect(fx + 50, fy + fh - 60, 22, 55, 60, 60, 70);
+      fillSceneRect(fx + 30, fy + fh - 15, 25, 10, 220, 50, 50);
+      for (let rx = fx + 6; rx < fx + fw - 6; rx += 8) {
+        canvas.drawLine(rx, fy + 20, rx - 4, fy + fh - 10, 150, 170, 200);
       }
-      fillSceneRect(fx + fw / 2 - 8, fy + 25, 16, fh - 35, 180, 40, 40);
-      fillSceneRect(fx + fw / 2 - 14, fy + fh - 12, 28, 6, 220, 30, 30);
       break;
 
-    case 2: // Fuel tanker fire Cairo
-      fillSceneRect(fx + 5, fy + fh - 22, fw - 10, 18, 80, 80, 80);
-      fillSceneRect(fx + 25, fy + fh - 35, 45, 18, 120, 40, 40);
-      fillSceneRect(fx + 40, fy + fh - 52, 25, 22, 240, 120, 20);
-      fillSceneRect(fx + 45, fy + fh - 66, 15, 18, 255, 200, 0);
-      fillSceneRect(fx + 50, fy + fh - 74, 8, 12, 255, 255, 255);
+    case 4: // 4 Kuwaiti air-defence station at night, drone silhouette, explosion flash, two empty helmets on a bench
+      fillSceneRect(fx + 8, fy + fh - 30, fw - 16, 25, 60, 60, 70);
+      fillSceneRect(fx + 20, fy + fh - 20, 24, 6, 90, 90, 90);
+      fillSceneRect(fx + 26, fy + fh - 26, 6, 6, 120, 130, 110);
+      fillSceneRect(fx + 36, fy + fh - 26, 6, 6, 120, 130, 110);
+      fillSceneRect(fx + 50, fy + 18, 12, 3, 30, 30, 30);
+      fillSceneRect(fx + 52, fy + 15, 16, 16, 255, 180, 50);
       break;
 
-    case 3: // Nor'easter NYC Thanksgiving
-      fillSceneRect(fx + 8, fy + fh - 50, 18, 45, 70, 70, 90);
-      fillSceneRect(fx + 30, fy + fh - 70, 22, 65, 60, 60, 80);
-      fillSceneRect(fx + 56, fy + fh - 55, 20, 50, 75, 75, 95);
-      fillSceneRect(fx + 80, fy + fh - 75, 26, 70, 50, 50, 70);
-      for (let rx = fx + 5; rx < fx + fw - 5; rx += 7) {
-        for (let ry = fy + 5; ry < fy + fh - 8; ry += 10) {
-          canvas.drawLine(rx, ry, rx - 2, ry + 6, 120, 140, 180);
-        }
+    case 5: // 5 Trading floor of glowing green screens and rising arrows, oil derrick, gold bar, closed exchange facade
+      fillSceneRect(fx + 8, fy + 12, fw - 16, 35, 20, 40, 30);
+      fillSceneRect(fx + 12, fy + 16, fw - 24, 8, 40, 200, 80);
+      fillSceneRect(fx + 12, fy + 28, fw - 24, 8, 40, 200, 80);
+      canvas.drawLine(fx + 15, fy + 40, fx + 35, fy + 20, 50, 255, 50);
+      fillSceneRect(fx + 50, fy + fh - 30, 10, 25, 120, 120, 120);
+      fillSceneRect(fx + 65, fy + fh - 20, 14, 8, 220, 190, 50);
+      break;
+
+    case 6: // 6 Packed football stadium under lights, receiver catching in the end zone, clock showing 0:03
+      fillSceneRect(fx + 6, fy + fh - 35, fw - 12, 30, 40, 120, 50);
+      fillSceneRect(fx + 10, fy + 8, 8, 6, 255, 255, 200);
+      fillSceneRect(fx + fw - 18, fy + 8, 8, 6, 255, 255, 200);
+      fillSceneRect(fx + 35, fy + fh - 25, 8, 14, 200, 50, 50);
+      fillSceneRect(fx + 50, fy + fh - 28, 8, 16, 50, 50, 200);
+      fillSceneRect(fx + fw / 2 - 16, fy + 12, 32, 10, 20, 20, 20);
+      break;
+
+    case 7: // 7 Field clinic in Congolese forest, workers in white protective suits, red-cross tent
+      fillSceneRect(fx + 6, fy + fh - 35, fw - 12, 30, 40, 80, 40);
+      fillSceneRect(fx + 20, fy + 15, fw - 40, fh - 25, 240, 240, 240);
+      fillSceneRect(fx + fw / 2 - 6, fy + 22, 12, 12, 220, 40, 40);
+      fillSceneRect(fx + 30, fy + fh - 20, 6, 14, 255, 255, 255);
+      fillSceneRect(fx + 45, fy + fh - 20, 6, 14, 255, 255, 255);
+      break;
+
+    case 8: // 8 White cliffs of Dover, airport arrivals board, near-empty passport queue, downward arrow chart
+      fillSceneRect(fx + 6, fy + fh - 30, fw - 12, 25, 230, 230, 230);
+      fillSceneRect(fx + 12, fy + 12, 30, 18, 30, 30, 30);
+      canvas.drawLine(fx + 50, fy + 15, fx + 72, fy + 35, 200, 40, 40);
+      break;
+
+    case 9: // 9 Floodlit European stadium, celebrating players in red and black, scoreboard CELTA 1-2 BOURNEMOUTH
+      fillSceneRect(fx + 6, fy + fh - 30, fw - 12, 25, 30, 90, 40);
+      fillSceneRect(fx + fw / 2 - 25, fy + 10, 50, 14, 20, 20, 20);
+      fillSceneRect(fx + 30, fy + fh - 22, 7, 14, 180, 30, 30);
+      fillSceneRect(fx + 42, fy + fh - 24, 7, 16, 180, 30, 30);
+      fillSceneRect(fx + 54, fy + fh - 22, 7, 14, 30, 30, 30);
+      break;
+
+    case 10: // 10 Flooded mine mouth in jungle, rescue workers with headlamps, heavy rain, rope line
+      fillSceneRect(fx + 6, fy + fh - 35, fw - 12, 30, 50, 70, 50);
+      fillSceneRect(fx + 25, fy + fh - 25, 20, 18, 20, 20, 20);
+      fillSceneRect(fx + 55, fy + fh - 22, 6, 14, 200, 160, 40);
+      fillSceneRect(fx + 55, fy + fh - 24, 4, 3, 255, 255, 255);
+      for (let rx = fx + 8; rx < fx + fw - 8; rx += 7) {
+        canvas.drawLine(rx, fy + 10, rx - 3, fy + fh - 10, 140, 160, 190);
       }
       break;
 
-    case 4: // Lukashenko & Zelensky / suitcase quote
-      fillSceneRect(fx + 15, fy + 12, fw - 30, fh - 20, 210, 205, 195);
-      fillSceneRect(fx + 30, fy + fh - 30, fw - 60, 16, 90, 90, 90);
-      fillSceneRect(fx + fw / 2 - 10, fy + fh - 24, 20, 12, 140, 90, 40);
+    case 11: // 11 Garment workers marching in Dhaka, factory gates, placards, sewing machines
+      fillSceneRect(fx + 10, fy + fh - 35, fw - 20, 30, 100, 100, 110);
+      fillSceneRect(fx + 22, fy + fh - 25, 8, 16, 200, 50, 50);
+      fillSceneRect(fx + 38, fy + fh - 27, 8, 18, 50, 150, 200);
+      fillSceneRect(fx + 34, fy + fh - 38, 16, 10, 240, 240, 240);
       break;
 
-    case 5: // Iran Hormuz mines
-      fillSceneRect(fx + 5, fy + fh - 28, fw - 10, 24, 40, 90, 140);
-      fillSceneRect(fx + 30, fy + fh - 38, 45, 14, 80, 80, 80);
-      fillSceneRect(fx + 22, fy + fh - 12, 8, 8, 60, 60, 60);
-      canvas.drawLine(fx + 26, fy + fh - 12, fx + 26, fy + fh - 28, 180, 50, 50);
-      break;
-
-    case 6: // Russia oil refining low
-      fillSceneRect(fx + 20, fy + fh - 60, 10, 50, 100, 100, 100);
-      fillSceneRect(fx + 55, fy + fh - 45, 8, 35, 100, 100, 100);
-      fillSceneRect(fx + 15, fy + fh - 72, 20, 15, 180, 180, 180);
-      fillSceneRect(fx + 12, fy + fh - 85, 26, 15, 200, 200, 200);
-      break;
-
-    case 7: // Senegal AFCON title
-      fillSceneRect(fx + fw / 2 - 7, fy + 12, 14, 26, 220, 190, 50);
-      fillSceneRect(fx + fw / 2 - 12, fy + 36, 24, 6, 220, 190, 50);
-      fillSceneRect(fx + fw / 2 - 3, fy + 42, 6, 12, 100, 80, 30);
-      fillSceneRect(fx + 8, fy + fh - 12, fw - 16, 8, 50, 140, 60);
-      break;
-
-    case 8: // Tinubu Maiduguri peace promise
-      fillSceneRect(fx + 12, fy + 20, fw - 24, fh - 30, 190, 180, 160);
-      fillSceneRect(fx + fw / 2 - 20, fy + 28, 40, 10, 30, 120, 50);
-      fillSceneRect(fx + 25, fy + fh - 20, fw - 50, 10, 90, 90, 90);
-      break;
-
-    case 9: // Melania Trump children reunion
-      fillSceneRect(fx + 25, fy + fh - 45, 10, 30, 80, 110, 150);
-      fillSceneRect(fx + 42, fy + fh - 40, 8, 26, 150, 100, 120);
-      fillSceneRect(fx + 58, fy + fh - 45, 10, 30, 90, 130, 90);
-      canvas.drawLine(fx + 35, fy + fh - 30, fx + 42, fy + fh - 30, 50, 50, 50);
-      canvas.drawLine(fx + 50, fy + fh - 30, fx + 58, fy + fh - 30, 50, 50, 50);
-      break;
-
-    case 10: // North Korea orders Switzerland close office
-      fillSceneRect(fx + 25, fy + fh - 55, fw - 50, 45, 140, 140, 140);
-      fillSceneRect(fx + fw / 2 - 8, fy + fh - 40, 16, 16, 200, 40, 40);
-      fillSceneRect(fx + fw / 2 - 5, fy + fh - 35, 10, 6, 255, 255, 255);
-      fillSceneRect(fx + fw / 2 - 2, fy + fh - 38, 4, 12, 255, 255, 255);
-      break;
-
-    case 11: // Bangladesh garment minimum wage 36%
-      fillSceneRect(fx + 25, fy + fh - 55, fw - 50, 40, 70, 110, 140);
-      fillSceneRect(fx + fw / 2 - 16, fy + 16, 32, 16, 40, 160, 60);
-      break;
-
-    case 12: // India Constitution Day & IIT 6k seats
-      fillSceneRect(fx + fw / 2 - 10, fy + 16, 20, fh - 28, 180, 100, 30);
-      fillSceneRect(fx + fw / 2 - 16, fy + fh - 16, 32, 8, 30, 80, 160);
+    case 12: // 12 Strait of Hormuz at dawn, supertanker, mine below the surface, distant explosion plume
+      fillSceneRect(fx + 5, fy + fh - 25, fw - 10, 22, 40, 80, 120);
+      fillSceneRect(fx + 20, fy + fh - 40, 42, 14, 70, 70, 70);
+      fillSceneRect(fx + 30, fy + fh - 12, 8, 8, 50, 50, 50);
+      fillSceneRect(fx + 60, fy + fh - 45, 12, 16, 255, 140, 40);
       break;
   }
 }
 
-// --- WORLD MAP DRAWING HELPER (FIX 2) ---
+// --- WORLD MAP DRAWING HELPER ---
 function drawWorldMap(canvas: Canvas, x: number, y: number, w: number, h: number) {
   const fx = Math.floor(x);
   const fy = Math.floor(y);
   const fw = Math.floor(w);
   const fh = Math.floor(h);
 
-  // Background map box
   canvas.fillRect(fx, fy, fw, fh, 240, 236, 226);
   canvas.drawRect(fx, fy, fw, fh, 120, 115, 105, 1);
 
-  // Map title & legend header
-  canvas.drawText('GLOBAL DISPATCHES MAP (12 PINNED STORIES)', fx + 8, fy + 6, 8, 40, 40, 40);
+  canvas.drawText('GLOBAL DISPATCHES MAP, 12 PINNED STORIES', fx + 8, fy + 6, 8, 40, 40, 40);
 
-  // Draw dotted world outline placeholders (continents)
-  // North America
-  canvas.fillRect(fx + 40, fy + 25, 60, 35, 215, 210, 200);
-  // South America
-  canvas.fillRect(fx + 75, fy + 65, 35, 40, 215, 210, 200);
-  // Europe
-  canvas.fillRect(fx + 160, fy + 22, 45, 30, 215, 210, 200);
-  // Africa
-  canvas.fillRect(fx + 165, fy + 58, 45, 50, 215, 210, 200);
-  // Asia
-  canvas.fillRect(fx + 220, fy + 20, 110, 55, 215, 210, 200);
-  // Australia
-  canvas.fillRect(fx + 300, fy + 75, 40, 30, 215, 210, 200);
+  canvas.fillRect(fx + 30, fy + 22, 50, 32, 215, 210, 200);
+  canvas.fillRect(fx + 60, fy + 58, 30, 35, 215, 210, 200);
+  canvas.fillRect(fx + 145, fy + 20, 38, 25, 215, 210, 200);
+  canvas.fillRect(fx + 150, fy + 50, 38, 42, 215, 210, 200);
+  canvas.fillRect(fx + 195, fy + 18, 95, 50, 215, 210, 200);
+  canvas.fillRect(fx + 265, fy + 68, 32, 25, 215, 210, 200);
 
-  // 12 numbered pins coordinates (approximate pixel locations on map box)
   const pins = [
-    { id: 1, px: 280, py: 35, label: '1.NK' },     // North Korea
-    { id: 2, px: 195, py: 55, label: '2.CAIRO' },  // Cairo, Egypt
-    { id: 3, px: 65, py: 35, label: '3.NYC' },     // New York
-    { id: 4, px: 180, py: 28, label: '4.MOSC' },   // Moscow
-    { id: 5, px: 245, py: 48, label: '5.HORM' },   // Hormuz / Iran
-    { id: 6, px: 260, py: 25, label: '6.RUSS' },   // Russia refining
-    { id: 7, px: 145, py: 65, label: '7.SENE' },   // Senegal
-    { id: 8, px: 175, py: 68, label: '8.NIG' },    // Nigeria
-    { id: 9, px: 172, py: 32, label: '9.KIDS' },   // Ukraine/Kids
-    { id: 10, px: 170, py: 28, label: '10.SW' },   // Swiss / NK
-    { id: 11, px: 290, py: 52, label: '11.BD' },   // Bangladesh
-    { id: 12, px: 275, py: 58, label: '12.IND' },  // India
+    { id: 1, px: 168, py: 24, label: 'KYIV' },
+    { id: 2, px: 175, py: 52, label: 'JIZAN' },
+    { id: 3, px: 50, py: 30, label: 'NEW YORK' },
+    { id: 4, px: 182, py: 48, label: 'KUWAIT CITY' },
+    { id: 5, px: 138, py: 20, label: 'LONDON' },
+    { id: 6, px: 40, py: 28, label: 'DETROIT' },
+    { id: 7, px: 160, py: 72, label: 'KINSHASA' },
+    { id: 8, px: 150, py: 32, label: 'BOURNEMOUTH' },
+    { id: 9, px: 250, py: 62, label: 'BOGOR' },
+    { id: 10, px: 235, py: 38, label: 'DHAKA' },
+    { id: 11, px: 210, py: 50, label: 'HORMUZ' },
+    { id: 12, px: 275, py: 32, label: 'TOKYO' },
   ];
 
   for (const pin of pins) {
@@ -428,12 +432,14 @@ function drawWorldMap(canvas: Canvas, x: number, y: number, w: number, h: number
     canvas.drawText(String(pin.id), pabsX - 2, pabsY - 3, 7, 255, 255, 255);
   }
 
-  // Legend on right half of map box
-  const legX = fx + 355;
-  let legY = fy + 20;
+  const legX1 = fx + 305;
+  const legX2 = fx + 405;
+  let legY = fy + 18;
   for (let i = 0; i < pins.length; i++) {
-    const text = `${pins[i].id}:${pins[i].label.split('.')[1] || pins[i].label}`;
-    canvas.drawText(text, legX + (i >= 6 ? 65 : 0), legY + (i % 6) * 13, 7, 60, 60, 60);
+    const text = `${pins[i].id}. ${pins[i].label}`;
+    const colX = i < 6 ? legX1 : legX2;
+    const rowY = legY + (i % 6) * 13;
+    canvas.drawText(text, colX, rowY, 7, 50, 50, 50);
   }
 }
 
@@ -523,14 +529,14 @@ function generateNewspaperPNG(): Buffer {
   canvas.drawText('THE WORLD IN ONE PAGE', 190, 24, 28, 10, 10, 10);
 
   // FIX 6: Top-3 sub-headline line under masthead
-  canvas.drawText('TOP 3: 1. KIM JONG UN TACTICAL NUCLEAR DEPLOYMENT | 2. CAIRO TANKER FIRE KILLS 30 | 3. NYC NOR\'EASTER', 95, 54, 9, 140, 30, 30);
+  canvas.drawText('TOP 3: 1. HYPERSONIC FIRE OVER KYIV | 2. GULF IN FLAMES | 3. THANKSGIVING NOR EASTER', 95, 54, 9, 140, 30, 30);
 
   canvas.drawLine(0, 68, 1024, 68, 30, 30, 30);
   canvas.drawLine(0, 70, 1024, 70, 30, 30, 30);
 
   // Region bars / metadata strip (y: 70 to 88)
   canvas.fillRect(0, 70, 1024, 18, 30, 30, 30);
-  canvas.drawText('35 STORIES · 6 REGIONS · ASIA · MIDDLE EAST · NORTH AMERICA · AFRICA · EUROPE · LATIN AMERICA', 110, 74, 9, 255, 255, 255);
+  canvas.drawText('35 STORIES - 6 REGIONS - EUROPE - MIDDLE EAST - NORTH AMERICA - AFRICA - ASIA - GLOBAL', 110, 74, 9, 255, 255, 255);
 
   // --- 2. TOP LEAD SECTION (y: 88 to 265) — Top 3 Lead Stories (FIX 8: Densify cards & scenes) ---
   canvas.fillRect(0, 88, 1024, 177, 255, 252, 245);
@@ -538,25 +544,27 @@ function generateNewspaperPNG(): Buffer {
 
   // Lead 1 (Left: x=10, w=330)
   canvas.fillRect(10, 94, 326, 165, 220, 215, 210, 1);
-  drawScene(canvas, 1, 14, 100, 130, 110);
-  canvas.drawText('[CONFIRMED] KCNA / CNN', 150, 100, 9, 180, 30, 30);
-  // FIX 7: Word-boundary headline wrap
-  canvas.drawWrappedText('KIM JONG UN URGES WIDER TACTICAL NUCLEAR DEPLOYMENT', 150, 114, 178, 10, 10, 10, 10, 3);
-  canvas.drawWrappedText('Status absolute & inviolable; production capacity systematically expanded across facilities.', 150, 160, 178, 8, 60, 60, 60, 3);
+  drawScene(canvas, 1, 14, 100, 130, 135);
+  canvas.drawText('[CONFIRMED] REUTERS / AP', 150, 100, 9, 180, 30, 30);
+  canvas.drawWrappedText('HYPERSONIC FIRE OVER KYIV', 150, 114, 178, 10, 10, 10, 10, 3);
+  canvas.drawWrappedText('Russia fires Zircon and S-400 missiles at Kyiv CHP-4 plant and Prospekt mall, 7 wounded. 113 drones launched. Ukraine hits back in Russia.', 150, 160, 178, 8, 60, 60, 60, 5);
+  canvas.drawText('7 WOUNDED - 113 DRONES - 100,000+ T GRAIN', 14, 240, 8, 180, 30, 30);
 
   // Lead 2 (Center: x=346, w=330)
   canvas.fillRect(346, 94, 326, 165, 220, 215, 210, 1);
-  drawScene(canvas, 2, 350, 100, 130, 110);
-  canvas.drawText('[CONFIRMED] EGYPT HEALTH', 486, 100, 9, 180, 30, 30);
-  canvas.drawWrappedText('FUEL TANKER FIRE KILLS 30 ON CAIRO RING ROAD', 486, 114, 178, 10, 10, 10, 10, 3);
-  canvas.drawWrappedText('Truck flipped & burst into flames on Giza ring road; 39 ambulances deployed immediately.', 486, 160, 178, 8, 60, 60, 60, 3);
+  drawScene(canvas, 2, 350, 100, 130, 135);
+  canvas.drawText('[CONFIRMED] REUTERS / AP', 486, 100, 9, 180, 30, 30);
+  canvas.drawWrappedText('GULF IN FLAMES', 486, 114, 178, 10, 10, 10, 10, 3);
+  canvas.drawWrappedText('Houthis strike Saudi port of Jizan. Coalition stops a drone near Jeddah and missiles over Riyadh. A drone kills 2 Italians in Kuwait.', 486, 160, 178, 8, 60, 60, 60, 5);
+  canvas.drawText('JIZAN HIT - 2 MISSILES DOWN - 2 KILLED', 350, 240, 8, 180, 30, 30);
 
   // Lead 3 (Right: x=682, w=332)
   canvas.fillRect(682, 94, 332, 165, 220, 215, 210, 1);
-  drawScene(canvas, 3, 686, 100, 130, 110);
-  canvas.drawText('[OFFICIAL] NWS / NYC EM', 822, 100, 9, 30, 90, 180);
-  canvas.drawWrappedText('NOR\'EASTER SLAMS NEW YORK ON THANKSGIVING DAY', 822, 114, 184, 10, 10, 10, 10, 3);
-  canvas.drawWrappedText('Heavy rain 1-2 in, wind gusts 45-60 mph, coastal flood & flight disruption warnings.', 822, 160, 184, 8, 60, 60, 60, 3);
+  drawScene(canvas, 3, 686, 100, 130, 135);
+  canvas.drawText('[CONFIRMED] WSJ / NWS', 822, 100, 9, 30, 90, 180);
+  canvas.drawWrappedText('THANKSGIVING UNDER WATER AND WIND', 822, 114, 184, 10, 10, 10, 10, 3);
+  canvas.drawWrappedText('Nor easter cuts power for 250,000 plus on the US East Coast. Gusts 65 mph in New York. 350 flights cancelled. Macy parade moves to Sat.', 822, 160, 184, 8, 60, 60, 60, 5);
+  canvas.drawText('250,000+ NO POWER - 65 MPH - 350 FLIGHTS', 686, 240, 8, 30, 90, 180);
 
   // --- 3. PICTURED STORIES GRID (Stories 4 to 12) (y: 265 to 585) ---
   const gridX = [10, 346, 682];
@@ -565,15 +573,15 @@ function generateNewspaperPNG(): Buffer {
   const cardH = 101;
 
   const picturedStories = [
-    { id: 4, src: '[REPORTED] LAMEDITERRANEE', title: 'LUKASHENKO OFFERS ZELENSKY MOSCOW TALKS', body: 'Zelensky replies: "Am I just a suitcase for him?" amid diplomatic push.' },
-    { id: 5, src: '[CLAIM] IRAN MARITIME', title: 'SHIPS HIT UNDERWATER MINES IN HORMUZ', body: 'Iran claims mine strikes, warns international shipping to coordinate passage.' },
-    { id: 6, src: '[REPORTED] ENERGY WIRE', title: 'RUSSIA REFINING FALLS TO 20-YEAR LOW', body: 'Output drops following synchronized drone strikes across 18 refineries.' },
-    { id: 7, src: '[REPORTED] STARLIT DAILY', title: 'SENEGAL WIN BACK 2025 AFCON TITLE', body: 'CAS overturns CAF ruling and formally annuls the disputed final forfeit.' },
-    { id: 8, src: '[REPORTED] NIGERIA NEWS', title: 'TINUBU PROMISES PEACE IN NORTHEAST', body: 'Speaking in Maiduguri ahead of key regional elections scheduled for January.' },
-    { id: 9, src: '[REPORTED] HUMANITARIAN', title: 'MELANIA TRUMP REUNITES CHILDREN', body: 'Helps facilitate return of nine more Ukrainian and Russian children to families.' },
-    { id: 10, src: '[REPORTED] BBC WIRE', title: 'NORTH KOREA EXPELS SWISS DIPLOMAT', body: 'Orders Switzerland to close its diplomatic office in Pyongyang in sanctions row.' },
-    { id: 11, src: '[REPORTED] ASIA LABOUR', title: 'BANGLADESH RAISES GARMENT WAGE 36%', body: 'Major pay hike implemented following extensive worker negotiations and protests.' },
-    { id: 12, src: '[OFFICIAL] GOVT OF INDIA', title: 'INDIA CELEBRATES CONSTITUTION DAY', body: 'Announces 6,000 new IIT seats in robotics, AI and advanced space technology.' }
+    { id: 4, src: '[CONFIRMED] REUTERS/CNN', title: 'TWO ITALIANS KILLED IN KUWAIT', body: 'Iranian drone hits a Kuwait air-defence station, killing 2 Rheinmetall Italia technicians. Tehran denies any role.' },
+    { id: 5, src: '[CONFIRMED] REUTERS', title: 'THE BOUNCE AFTER THE ROUT', body: 'US markets shut for Thanksgiving. Wednesday Dow 50,182.95, plus 0.33 percent. Nikkei up 0.86, STOXX up 1.75, Brent 96.53.' },
+    { id: 6, src: '[CONFIRMED] REUTERS/AP', title: 'THREE SECONDS TO GLORY', body: 'Williams hits Odunze with three seconds left as Chicago erases an 11 point deficit in Detroit. Bears 39-35 Lions, first in the NFC North.' },
+    { id: 7, src: '[CONFIRMED] REUTERS/DRC', title: 'EBOLA PASSES 12,000 CASES', body: 'DR Congo outbreak reaches 12,021 cases and 5,904 deaths, the second largest on record. Containment struggles amid insecurity.' },
+    { id: 8, src: '[OFFICIAL] ONS/REUTERS', title: 'BRITAIN GREAT SLOWDOWN', body: 'UK net migration falls to 77,000 in the year to June 2026, down from 204,000. Lowest since 1997 outside the pandemic years.' },
+    { id: 9, src: '[CONFIRMED] UEFA/AP', title: 'FIVE IN A ROW FOR BOURNEMOUTH', body: 'Ten-man Bournemouth beat Celta Vigo 2-1, first English club to win its opening five European matches. Club record 10th straight win.' },
+    { id: 10, src: '[CONFIRMED] AP', title: 'BURIED ALIVE IN BOGOR', body: 'Illegal gold-mine flood toll update: 13 dead, 13 missing about 100 metres underground. The flood itself was late Monday 23 Nov.' },
+    { id: 11, src: '[REPORTED] REUTERS', title: 'DHAKA WAGE REVOLT', body: 'Bangladesh 36 percent garment minimum-wage rise misses workers demands and sparks fresh street protests in Dhaka after months of unrest.' },
+    { id: 12, src: '[CLAIM] REUTERS/IRGC', title: 'MINES IN THE STRAIT', body: 'IRGC claims a supertanker with 2 million plus barrels was hit by a mine near Khasab in the Strait of Hormuz. Britain reports a blast.' }
   ];
 
   for (let i = 0; i < picturedStories.length; i++) {
@@ -589,8 +597,8 @@ function generateNewspaperPNG(): Buffer {
     drawScene(canvas, picturedStories[i].id, cx + 5, cy + 5, 85, cardH - 10);
 
     canvas.drawText(picturedStories[i].src, cx + 96, cy + 6, 8, 120, 40, 40);
-    canvas.drawText(picturedStories[i].title, cx + 96, cy + 17, 9, 10, 10, 10, cw - 102);
-    canvas.drawWrappedText(picturedStories[i].body, cx + 96, cy + 46, cw - 102, 7, 70, 70, 70, 3);
+    canvas.drawWrappedText(picturedStories[i].title, cx + 96, cy + 17, cw - 102, 9, 10, 10, 10, 2);
+    canvas.drawWrappedText(picturedStories[i].body, cx + 96, cy + 44, cw - 102, 7, 70, 70, 70, 4);
   }
 
   // --- 4. WORLD MAP & TIMELINE STRIP (y: 585 to 695) (FIX 2 & FIX 3) ---
@@ -603,18 +611,17 @@ function generateNewspaperPNG(): Buffer {
   // UTC Timeline on right (x: 525 to 1014, w: 489, h: 100)
   canvas.fillRect(525, 590, 489, 100, 240, 235, 225);
   canvas.drawRect(525, 590, 489, 100, 130, 125, 115, 1);
-  canvas.drawText('26 NOV UTC TIMELINE (NON-TRUNCATED LABELS)', 535, 596, 8, 20, 20, 20);
+  canvas.drawText('26 NOV UTC TIMELINE', 535, 596, 8, 20, 20, 20);
 
-  // FIX 3: Non-truncated timeline events in 2 rows
-  const timelineRow1 = ['00:01 ZELENSKY', '00:06 HORMUZ', '00:06 RUSSIA REF', '00:09 MOSCOW'];
-  const timelineRow2 = ['00:20 SENEGAL', '01:21 TINUBU', '08:30 MACYS', '10:00 NYC STORM'];
+  const timelineRow1 = ['00:18 SIEMENS', '01:32 KYIV', '01:38 PDVSA', 'AM ONS 77,000', '14:00 NO POWER'];
+  const timelineRow2 = ['17:13 ELEX DELAY', 'EVE BOURNEMOUTH', '20:01 COPERNICUS', '21:38 BEARS 39-35'];
 
-  let tx = 535;
+  let tx = 532;
   for (const ev of timelineRow1) {
-    canvas.fillRect(tx, p_clamp(615), 112, 18, 255, 255, 255);
-    canvas.drawRect(tx, 615, 112, 18, 160, 160, 160, 1);
+    canvas.fillRect(tx, p_clamp(615), 94, 18, 255, 255, 255);
+    canvas.drawRect(tx, 615, 94, 18, 160, 160, 160, 1);
     canvas.drawText(ev, tx + 4, 620, 7, 30, 30, 30);
-    tx += 116;
+    tx += 97;
   }
 
   tx = 535;
@@ -632,29 +639,29 @@ function generateNewspaperPNG(): Buffer {
   canvas.drawText('ALSO ON 26 NOVEMBER — WIRE BRIEFS (13–35)', 15, 700, 9, 180, 30, 30);
 
   const alsoOnItems = [
-    '13. VON DER LEYEN: ENERGY CEASEFIRE [REPORTED]',
-    '14. KREMLIN ALLEGES ESTONIA DRONE STRIKES [CLAIM]',
-    '15. UK: MANDATORY EYE TESTS FOR DRIVERS >70 [REPORTED]',
-    '16. GORDON RAMSAY TO HOST TOP GEAR REVIVAL [REPORTED]',
-    '17. MOD PREPARES FOR POTENTIAL CONFLICT [REPORTED]',
-    '18. RECORD GLOBAL TEMPERATURE STREAK [REPORTED]',
-    '19. PERFUME PRICE-FIXING FINES HANDED DOWN [REPORTED]',
-    '20. KEMI BADENOCH DEMANDS APOLOGY [REPORTED]',
-    '21. CABINET RIFT OVER ED MILIBAND [REPORTED]',
-    '22. BBC FACES ANTISEMITISM INQUIRY [REPORTED]',
-    '23. GERMANY HOSTS SWIMMING & T20 CRICKET [REPORTED]',
-    '24. SPAIN-LINKED WOMEN GROUP CRITICISES CANADA [REPORTED]',
-    '25. HONG KONG TIGHTENS EXOTIC PET RULES [REPORTED]',
-    '26. BABA APARAJITH RETIRES AT 32 FOR COACHING [REPORTED]',
-    '27. MAX VERSTAPPEN: RATHER STAY HOME [REPORTED]',
-    '28. DEANDRA DOTTIN WBBL TIMED-OUT RULE [REPORTED]',
-    '29. NAGALAND UNITED BEAT SHILLONG 2-1 [REPORTED]',
-    '30. INDIAN WOMEN HOCKEY NO. 4 AFTER 4-0 [REPORTED]',
-    '31. IPL 2027 AUCTION GETS 1,220 REGISTRATIONS [REPORTED]',
-    '32. WORLD CHESS: GUKESH VS SINDAROV [REPORTED]',
-    '33. FIVE MEXICANS DETAINED OVER $227M LAB [REPORTED]',
-    '34. ECOWAS APPROVES SECURITY FORCE ROADMAP [REPORTED]',
-    '35. ECUADOR MINISTER: US TALKS ON OPERATIONS [REPORTED]'
+    '13. GUINEA-BISSAU DELAYS VOTE TO NOV 2028 [CONFIRMED]',
+    '14. GERMANY ARRESTS 2 OVER SYNAGOGUE PLOT [CONFIRMED]',
+    '15. GAZA STRIKES KILL 9, 3RD NIGHT IN ROW [REPORTED]',
+    '16. CAIRO TOLL NOW 31 DEAD, DRIVER HELD [CONFIRMED]',
+    '17. VENEZUELA IN TALKS TO CLEAR 4.2BN DEBT [REPORTED]',
+    '18. VENEZUELA: SIEMENS DEAL, 2BN ENI PLEDGE [REPORTED]',
+    '19. TAIWAN JAILS EX-SAILOR 6 YRS FOR SPYING [CONFIRMED]',
+    '20. DE COS PICKED AS NEXT ECB PRESIDENT [REPORTED]',
+    '21. ALTRIA EYES IMPERIAL BRANDS, SHRS UP 17.6% [CONFIRMED]',
+    '22. BOE: HYPERSCALER EXPOSURE TOPS 4TN [OFFICIAL]',
+    '23. SIX DAYS ABOVE 2C, A FIRST, PEAK 2.24C [REPORTED]',
+    '24. NORSE ATLANTIC HALTS FLIGHTS, WARNS [REPORTED]',
+    '25. BANGKOK REFINERY FIRE INJURES NINE [REPORTED]',
+    '26. IRAQ CLOSES 2 KURDISTAN CROSSINGS [REPORTED]',
+    '27. US URGES CITIZENS TO LEAVE IRAN [REPORTED]',
+    '28. PHILIPPINES COMMISSIONS 3 PATROL SHIPS [REPORTED]',
+    '29. GAO: US MUNITIONS TAKE YEARS TO REBUILD [REPORTED]',
+    '30. FINCEN CONFIRMS INTERNAL CYBER BREACH [REPORTED]',
+    '31. 1PASSWORD DEV ENVIRONMENT BREACHED [REPORTED]',
+    '32. KENYAN CULT LEADER GUILTY OF TERROR [REPORTED]',
+    '33. MUSK PLEDGES SPACEX SHARES FOR KIDS [REPORTED]',
+    '34. BANK OF KOREA RAISES RATE TO 3.25% [REPORTED]',
+    '35. KUSHNER CONFIRMS DIRECT IRAN TALKS [REPORTED]'
   ];
 
   // Integer column layout: 3 columns, each width 324px, gap 12px
@@ -671,17 +678,20 @@ function generateNewspaperPNG(): Buffer {
 
   // --- 6. THE DAY IN NUMBERS STRIP (y: 840 to 895) (FIX 4: 14 numbers including 1-2 in rain) ---
   canvas.fillRect(0, 840, 1024, 55, 30, 30, 30);
-  canvas.drawText('THE DAY IN NUMBERS (14): 30 KILLED (CAIRO) | 45-60 MPH GUSTS | 1-2 IN RAIN (NYC) | 100TH PARADE | 36% WAGE', 15, 848, 8, 255, 220, 100);
-  canvas.drawText('3.7M PETS | 1,220 IPL | 6,000 IIT | $227M LAB | 9 REUNITED | 2-1 NAGALAND | 4-0 HOCKEY | 8:30 AM | 23/34 MPH', 15, 868, 8, 200, 200, 200);
+  canvas.drawText('THE DAY IN NUMBERS (14): 7 WOUNDED KYIV | 113 DRONES | 100,000+ T GRAIN | 250,000+ NO POWER | 65 MPH GUSTS | 350 FLIGHTS | 12,021 CASES 5,904 DEATHS', 15, 848, 8, 255, 220, 100);
+  canvas.drawText('77,000 UK MIGRATION | 39-35 BEARS WIN | 5 BOURNEMOUTH WINS | 13 DEAD 13 MISSING BOGOR | 2 ITALIANS KILLED | 96.53 BRENT | 57,499.16 NIKKEI', 15, 868, 8, 200, 200, 200);
 
   // --- 7. DATE CHECK FOOTER & LEGEND (y: 895 to 1024) (FIX 5: 10 exclusions including Aaron Rodgers) ---
   canvas.fillRect(0, 895, 1024, 129, 220, 215, 205);
   canvas.drawRect(0, 895, 1024, 129, 50, 50, 50, 1);
 
-  canvas.drawText('DATE CHECK (10 EXCLUDED 25 NOV STORIES): UKRAINE ROSNEFT STRIKES; US 301 TARIFFS; SHENZHOU-24;', 12, 902, 7, 100, 30, 30);
-  canvas.drawText('US MARKETS ROUT (-2%); HOUTHIS; SUDAN RSF; ANDY TAYLOR; MACY\'S POSTPONED; POUNDLAND; AARON RODGERS.', 12, 917, 7, 100, 30, 30);
-  canvas.drawText('CONFIDENCE: [CONFIRMED] VERIFIED WIRES  |  [OFFICIAL] GOV/NWS  |  [REPORTED] MEDIA  |  [CLAIM] UNVERIFIED', 12, 940, 7, 40, 40, 40);
-  canvas.drawText('NEWS-IMAGE-20261126 · SESSION 2 FIX/POLISH PASS · NODE 22 STDLIB · 1024X1024 PNG', 12, 957, 7, 80, 80, 80);
+  canvas.drawText('DATE CHECK (18 EXCLUDED, NOT 26 NOV NEWS):', 12, 902, 7, 100, 30, 30);
+  canvas.drawText('KIM NUCLEAR ORDER 25 NOV; CAIRO TANKER FIRE 25 NOV; SHENZHOU-24 25 NOV; USTR 301 TARIFFS 25 NOV; SAMARA STRIKES 25 NOV;', 12, 914, 7, 100, 30, 30);
+  canvas.drawText('RAMS BEAT PACKERS WED 25 NOV; IOWA AMMO BLAST WED 25 NOV; WALL ST WED REVERSAL 25 NOV; COP31 COLLAPSE 21-22 NOV;', 12, 926, 7, 100, 30, 30);
+  canvas.drawText('SOLOMON TREATY SIGNED WED 25 NOV; NETANYAHU CASE 4000 WED 25 NOV; MAMDANI RENT FREEZE WED 25 NOV; MYANMAR ICJ WED 25 NOV;', 12, 938, 7, 100, 30, 30);
+  canvas.drawText('N KOREA EXPELS SWISS DIPLOMAT 25 NOV; MACYS MOVE DECIDED WED 25 NOV; SUDAN RSF STRIKES 24 NOV; POUNDLAND 25 NOV; RAS TANURA CLAIM 25 NOV.', 12, 950, 7, 100, 30, 30);
+  canvas.drawText('CONFIDENCE: [CONFIRMED] VERIFIED WIRES  |  [OFFICIAL] GOV/NWS  |  [REPORTED] MEDIA  |  [CLAIM] UNVERIFIED', 12, 968, 7, 40, 40, 40);
+  canvas.drawText('NEWS-IMAGE-20261126 - RESUBMIT FULL-DAY RESEARCH - NODE 22 STDLIB - 1024X1024 PNG', 12, 985, 7, 80, 80, 80);
 
   return encodePNG(canvas.width, canvas.height, canvas.data);
 }
